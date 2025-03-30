@@ -1,0 +1,3 @@
+device_id: "D21237"
+topic_name: "/digit/image_raw"
+publish_rate: 30

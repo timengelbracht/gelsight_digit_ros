@@ -1,0 +1,7 @@
+<launch>
+  <node pkg="gelsight_digit_ros" type="gelsight_digit_node.py" name="gelsight_digit_node" output="screen">
+    <param name="device_id" value="D21237"/>
+    <param name="topic_name" value="/digit/image_raw"/>
+    <param name="publish_rate" value="30"/>
+  </node>
+</launch>
