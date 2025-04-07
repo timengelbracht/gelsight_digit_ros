@@ -1,7 +1,11 @@
 <launch>
+  <arg name="device_id" default="D21237"/>
+  <arg name="topic_name" default="/digit/image_raw"/>
+  <arg name="publish_rate" default="30"/>
+
   <node pkg="gelsight_digit_ros" type="gelsight_digit_node.py" name="gelsight_digit_node" output="screen">
-    <param name="device_id" value="D21237"/>
-    <param name="topic_name" value="/digit/image_raw"/>
-    <param name="publish_rate" value="30"/>
+    <param name="device_id" value="$(arg device_id)"/>
+    <param name="topic_name" value="$(arg topic_name)"/>
+    <param name="publish_rate" value="$(arg publish_rate)"/>
   </node>
 </launch>
