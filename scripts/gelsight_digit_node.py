@@ -38,6 +38,9 @@ class DigitRosNode:
                 self.image_publisher.publish(ros_image)
 
                 # Log publishing info
+                ros_image = self.bridge.cv2_to_imgmsg(frame, encoding='bgr8')
+                ros_image.header.stamp = rospy.Time.now()
+                ros_image.header.frame_id = "digit"
                 rospy.loginfo("Publishing image from DIGIT sensor")
 
                 rate.sleep()
