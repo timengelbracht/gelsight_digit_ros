@@ -13,6 +13,7 @@ class DigitRosNode:
         self.device_id = rospy.get_param('~device_id', 'D21237')  # Replace with your Digit device ID
         self.topic_name = rospy.get_param('~topic_name', '/digit/image_raw')
         self.publish_rate = rospy.get_param('~publish_rate', 30)
+        self.verbose = rospy.get_param('~verbose', 0)
 
         # Publisher setup
         self.image_publisher = rospy.Publisher(self.topic_name, Image, queue_size=10)
@@ -41,7 +42,8 @@ class DigitRosNode:
                 self.image_publisher.publish(ros_image)
 
                 # Log publishing info
-                rospy.loginfo("Publishing image from DIGIT sensor")
+                if int(self.verbose) != 0:
+                    rospy.loginfo("Publishing image from DIGIT sensor")
 
                 rate.sleep()
             except Exception as e:
