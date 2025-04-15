@@ -3,10 +3,12 @@
   <arg name="topic_name" default="/digit/image_raw"/>
   <arg name="publish_rate" default="30"/>
   <arg name="node_name" default="gelsight_digit_node"/>
+  <arg name="verbose" default="0"/>
 
   <node pkg="gelsight_digit_ros" type="gelsight_digit_node.py" name="$(arg node_name)" output="screen">
     <param name="device_id" value="$(arg device_id)"/>
     <param name="topic_name" value="$(arg topic_name)"/>
     <param name="publish_rate" value="$(arg publish_rate)"/>
+    <param name="verbose" value="$(arg verbose)"/>
   </node>
 </launch>
