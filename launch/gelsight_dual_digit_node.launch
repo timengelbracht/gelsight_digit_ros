@@ -1,0 +1,16 @@
+<launch>
+  <!-- DIGIT SETTINGS -->
+  <arg name="digit_left_id"  default="D21237"/>
+  <arg name="digit_right_id" default="D21236"/>
+  <arg name="digit_rate"     default="30"/>
+
+  <node pkg="gelsight_digit_ros" type="gelsight_dual_digit_node.py"
+        name="digit_dual_node" output="screen" required="true">
+    <param name="device_left_id"  value="$(arg digit_left_id)"/>
+    <param name="device_right_id" value="$(arg digit_right_id)"/>
+    <param name="left_topic_name" value="/digit/left/image_raw"/>
+    <param name="right_topic_name" value="/digit/right/image_raw"/>
+    <param name="publish_rate"    value="$(arg digit_rate)"/>
+    <param name="verbose"         value="1"/> <!-- Optional: set to 0 to silence logging -->
+  </node>
+</launch>
