@@ -29,6 +29,12 @@ class DualDigitRosNode:
         self.digit_left.connect()
         self.digit_right.connect()
 
+        #self.digit_left.set_resolution(Digit.STREAMS["QVGA"])
+        #self.digit_right.set_resolution(Digit.STREAMS["QVGA"])
+
+        self.digit_left.set_fps(Digit.STREAMS["VGA"]["fps"]["30fps"] )
+        self.digit_right.set_fps(Digit.STREAMS["VGA"]["fps"]["30fps"] )
+        
         rospy.loginfo(f"Connected to DIGIT sensors: {self.device_left_id}, {self.device_right_id}")
 
     def capture_and_publish(self):
